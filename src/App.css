@@ -1,38 +1,99 @@
-.App {
-  text-align: center;
+#customers {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
+#customers tr:nth-child(even){background-color: #f2f2f2;}
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+#customers tr:hover {background-color: #ddd;}
+
+#customers th, tfoot td {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #04AA6D;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+span{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 0;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+span input{
+  font-size: 15px;
+  border: 2px solid #ddd;
+  border-radius: 10px;
+  padding: 4px;
+
+}
+
+.global{
+  padding: 6px 8px;
+
+}
+
+
+
+
+/* CSS */
+
+.buttons{
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+  margin-right: 40px;
+}
+
+.button-37 {
+  margin: 5px;
+  background-color: #13aa52;
+  border: 1px solid #13aa52;
+  border-radius: 4px;
+  box-shadow: rgba(0, 0, 0, .1) 0 2px 4px 0;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  font-family: "Akzidenz Grotesk BQ Medium", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  outline: none;
+  outline: 0;
+  padding: 10px 25px;
+  text-align: center;
+  transform: translateY(0);
+  transition: transform 150ms, box-shadow 150ms;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-37:hover {
+  box-shadow: rgba(0, 0, 0, .15) 0 3px 9px 0;
+  transform: translateY(-2px);
+}
+
+@media (min-width: 768px) {
+  .button-37 {
+    padding: 10px 30px;
   }
-  to {
-    transform: rotate(360deg);
-  }
+}
+
+
+
+
+.pagination{
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
