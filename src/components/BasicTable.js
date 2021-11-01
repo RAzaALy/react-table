@@ -14,7 +14,6 @@ const BasicTable = () => {
     rows,
     prepareRow,
     footerGroups,
-
   } = useTable({
     columns,
     data,
@@ -22,7 +21,6 @@ const BasicTable = () => {
 
   return (
     <>
-   
       <table id="customers" {...getTableProps()}>
         <thead>
           {headerGroups.map((headerGroup) => (
