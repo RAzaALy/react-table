@@ -1,11 +1,12 @@
-import React, { useMemo } from 'react'
-import { useTable, useRowSelect } from 'react-table'
-import MOCK_DATA from './MOCK_DATA.json'
-import { COLUMNS } from './columns'
-import CheckBox from './CheckBox'
+import React, { useMemo } from "react";
+import { useTable, useRowSelect } from "react-table";
+import MOCK_DATA from "./MOCK_DATA.json";
+import { COLUMNS } from "./columns";
+import CheckBox from "./CheckBox";
+
 const RowSelection = () => {
-  const columns = useMemo(() => COLUMNS, [])
-  const data = useMemo(() => MOCK_DATA, [])
+  const columns = useMemo(() => COLUMNS, []);
+  const data = useMemo(() => MOCK_DATA, []);
 
   const {
     getTableProps,
@@ -13,51 +14,53 @@ const RowSelection = () => {
     headerGroups,
     rows,
     prepareRow,
-    selectedFlatRows
+    selectedFlatRows,
   } = useTable(
     {
       columns,
-      data
+      data,
     },
     useRowSelect,
-    hooks => {
-      hooks.visibleColumns.push(columns => [
+    (hooks) => {
+      hooks.visibleColumns.push((columns) => [
         {
-          id: 'selection',
+          id: "selection",
           Header: ({ getToggleAllRowsSelectedProps }) => (
             <CheckBox {...getToggleAllRowsSelectedProps()} />
           ),
-          Cell: ({ row }) => <CheckBox {...row.getToggleRowSelectedProps()} />
+          Cell: ({ row }) => <CheckBox {...row.getToggleRowSelectedProps()} />,
         },
-        ...columns
-      ])
+        ...columns,
+      ]);
     }
-  )
+  );
 
-  const firstPageRows = rows.slice(0, 10)
+  const firstPageRows = rows.slice(0, 10);
 
   return (
     <>
       <table id="customers" {...getTableProps()}>
         <thead>
-          {headerGroups.map(headerGroup => (
+          {headerGroups.map((headerGroup) => (
             <tr {...headerGroup.getHeaderGroupProps()}>
-              {headerGroup.headers.map(column => (
-                <th {...column.getHeaderProps()}>{column.render('Header')}</th>
+              {headerGroup.headers.map((column) => (
+                <th {...column.getHeaderProps()}>{column.render("Header")}</th>
               ))}
             </tr>
           ))}
         </thead>
         <tbody {...getTableBodyProps()}>
-          {firstPageRows.map(row => {
-            prepareRow(row)
+          {firstPageRows.map((row) => {
+            prepareRow(row);
             return (
               <tr {...row.getRowProps()}>
-                {row.cells.map(cell => {
-                  return <td {...cell.getCellProps()}>{cell.render('Cell')}</td>
+                {row.cells.map((cell) => {
+                  return (
+                    <td {...cell.getCellProps()}>{cell.render("Cell")}</td>
+                  );
                 })}
               </tr>
-            )
+            );
           })}
         </tbody>
       </table>
@@ -65,7 +68,7 @@ const RowSelection = () => {
         <code>
           {JSON.stringify(
             {
-              selectedFlatRows: selectedFlatRows.map(row => row.original)
+              selectedFlatRows: selectedFlatRows.map((row) => row.original),
             },
             null,
             2
@@ -73,7 +76,7 @@ const RowSelection = () => {
         </code>
       </pre>
     </>
-  )
-}
+  );
+};
 
-export default RowSelection
+export default RowSelection;

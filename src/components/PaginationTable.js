@@ -7,7 +7,7 @@ const PaginationTable = () => {
   const columns = useMemo(() => COLUMNS, []);
   const data = useMemo(() => MOCK_DATA, []);
 
-  const paginationButton = ['1','2','3','4','5','6','7','8','9','10']
+  const paginationButton = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"];
 
   const {
     getTableProps,
@@ -28,7 +28,7 @@ const PaginationTable = () => {
     {
       columns,
       data,
-      initialState : { pageIndex : 2}
+      initialState: { pageIndex: 1 },
     },
     usePagination
   );
@@ -84,22 +84,32 @@ const PaginationTable = () => {
           Next
         </button>
 
-        <select value={pageSize} onChange={e => setPageSize(Number(e.target.value))} className="button-37">
-            {[10,20,30].map(pageSize => (
-                <option value={pageSize} key={pageSize}>Show {pageSize}</option>
-            ))}
+        <select
+          value={pageSize}
+          onChange={(e) => setPageSize(Number(e.target.value))}
+          className="button-37"
+        >
+          {[10, 20, 30, 40, 50].map((pageSize) => (
+            <option value={pageSize} key={pageSize}>
+              Show {pageSize}
+            </option>
+          ))}
         </select>
       </div>
 
-
       <div className="pagination">
-          {paginationButton.map((pagniation,idx) => {
-              return <button key={pagniation} onClick={() => gotoPage(idx)} className="button-37">{pagniation}</button>
-          })}
-        
+        {paginationButton.map((pagniation, idx) => {
+          return (
+            <button
+              key={pagniation}
+              onClick={() => gotoPage(idx)}
+              className="button-37"
+            >
+              {pagniation}
+            </button>
+          );
+        })}
       </div>
-
-   
     </>
   );
 };

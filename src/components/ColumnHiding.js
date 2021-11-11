@@ -2,7 +2,7 @@ import React, { useMemo } from "react";
 import { useTable } from "react-table";
 import MOCK_DATA from "./MOCK_DATA.json";
 import { COLUMNS } from "./columns";
-import CheckBox from"./CheckBox"
+import CheckBox from "./CheckBox";
 
 const ColumnHiding = () => {
   const columns = useMemo(() => COLUMNS, []);
